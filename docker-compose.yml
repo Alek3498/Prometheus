@@ -1,0 +1,61 @@
+version: "3.3"
+
+volumes:
+  prometheus-data: {}
+  prometheus-conf: {}
+  grafana-data: {}
+  grafana-conf: {}
+  grafana-logs: {}
+
+services:
+  node_exporter:
+    image: quay.io/prometheus/node-exporter:latest
+    container_name: node_exporter
+    command:
+      - '--path.rootfs=/host'
+    network_mode: host
+    pid: host
+    restart: unless-stopped
+    volumes:
+      - '/:/host:ro,rslave'
+      
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: prometheus
+    ports:
+      - '9090:9090'
+    restart: unless-stopped
+    volumes:
+      - prometheus-conf:/etc/prometheus
+      - prometheus-data:/prometheus
+    command:
+      - '--web.enable-lifecycle'
+      - '--config.file=/etc/prometheus/prometheus.yml'
+
+  grafana:
+    image: grafana/grafana:latest
+    container_name: grafana
+    ports:
+      - '3000:3000'
+    restart: unless-stopped
+    volumes:
+      - grafana-data:/var/lib/grafana
+      - grafana-logs:/var/log/grafana
+      - grafana-conf:/etc/grafana
+
+  cadvisor:
+    image: gcr.io/cadvisor/cadvisor:latest
+    container_name: cadvisor
+    ports:
+      - 8081:8080
+    volumes:
+      - /:/rootfs:ro
+      - /run:/run:ro
+      - /sys:/sys:ro
+      - /var/lib/docker/:/var/lib/docker:ro
+      - /dev/disk/:/dev/disk:ro
+    devices:
+      - /dev/kmsg
+    privileged: true
+    restart: unless-stopped
+    
