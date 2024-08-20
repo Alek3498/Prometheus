@@ -52,20 +52,24 @@ Follow these steps to set up Prometheus and Grafana:
     - Import pre-configured dashboards or create your own to visualize the metrics collected by Prometheus.
 
     - In my deployment I used:
-        - Dashboard Cadvisor (ID: 14282)for container metric visualization
-        - Dashboard Node Exporter Full (ID: 1860)for linux and windows metrics.
+        - Dashboard Cadvisor (ID: 14282) for container metric visualization
+        - Dashboard Node Exporter Full (ID: 1860) for linux and windows metrics.
 
 
 
 ## Directory Structure
 
 ```bash
-prometheus-grafana-integration/
+prometheus/
 │
-├── docker-compose.yml        # Docker Compose file to run Prometheus and Grafana
-├── prometheus-conf/          # Prometheus configuration files
-│   └── prometheus.yml
-└── grafana-data/             # Grafana data storage
+├── Docker-Lab.png             # Docker server with all containers of this lab
+├── Grafana-dashboards.png     # Grafana imported dashboards
+├── Prometheus+Grafana-Cadvisor_exporter.png          # Grafana Cadvisor dashboard
+├── Prometheus-GUI.png         # Prometheus targets to scrap
+├── Promethues+Grafana-Full_node_export.png # Grafana dashboard for Linux/windows node exporters
+├── docker-compose.yml         # This file build the whole lab
+├── grafana-data_sources.png   # Grafana config where we mapped Prometheus
+└── prometheus.yml             # Premethues configuration file.
 ```
 
 ## Usage
