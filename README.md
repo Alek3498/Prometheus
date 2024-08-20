@@ -81,13 +81,7 @@ prometheus/
 
 Contributions are welcome! Please fork this repository and submit a pull request with your changes.
 
-## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## Contact
-
-For any questions or suggestions, feel free to open an issue or reach out to me at your-email@example.com.
 
 ---
 
