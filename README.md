@@ -23,10 +23,10 @@ Follow these steps to set up Prometheus and Grafana:
 
 1. **Clone the Repository**:
     ```bash
-    git clone https://github.com/your-username/prometheus-grafana-integration.git
-    cd prometheus-grafana-integration
+    git clone https://github.com/Alek3498/Prometheus.git
+    cd Prometheus
     ```
-
+    
 2. **Configure Prometheus**:
     - Update the `prometheus.yml` file in the `prometheus-conf` directory to include your specific scrape targets and alerting rules.
 
