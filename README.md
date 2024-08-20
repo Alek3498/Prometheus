@@ -52,8 +52,8 @@ Follow these steps to set up Prometheus and Grafana:
     - Import pre-configured dashboards or create your own to visualize the metrics collected by Prometheus.
 
     - In my deployment I used:
-    - Dashboard Cadvisor (ID: 14282)for container metric visualization
-    - Dashboard Node Exporter Full (ID: 1860)for linux and windows metrics.
+        - Dashboard Cadvisor (ID: 14282)for container metric visualization
+        - Dashboard Node Exporter Full (ID: 1860)for linux and windows metrics.
 
 
 
